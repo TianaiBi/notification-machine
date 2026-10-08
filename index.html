@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notification Machine</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Load p5.js from the internet, so no vendor folder is needed. -->
+    <script defer src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+    <script defer src="sketch.js"></script>
+  </head>
+
+  <body>
+    <main class="machine">
+      <section class="screen" aria-label="Notification desktop">
+        <div class="menu-bar">
+          <time id="date"></time>
+          <time id="clock"></time>
+        </div>
+
+        <div class="desktop">
+          <section class="window" aria-label="System notification">
+            <div class="title-bar">
+              <div class="window-dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="window-title">Notification</span>
+              <span class="window-cross" aria-hidden="true">×</span>
+            </div>
+
+            <div class="window-content">
+              <div id="signal" aria-hidden="true"></div>
+
+              <div class="message" role="status" aria-live="polite" aria-atomic="true">
+                <h1 id="message-title">1 NEW NOTIFICATION</h1>
+                <p id="message-detail">A message is waiting to be opened.</p>
+              </div>
+
+              <div class="progress-space">
+                <div id="progress-panel" hidden>
+                  <div class="progress-info">
+                    <span>RETRIEVING MESSAGE...</span>
+                    <span id="percent">0%</span>
+                  </div>
+
+                  <div
+                    id="progress"
+                    role="progressbar"
+                    aria-label="Retrieving message"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                  >
+                    <div id="progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button id="action" type="button" disabled>OPEN</button>
+              <noscript>Please enable JavaScript to run the machine.</noscript>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
